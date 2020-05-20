@@ -1,0 +1,86 @@
+:root {
+  --background: #ffffff;
+  --accent: #2cb671;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Inter var,system-ui,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,Noto Sans,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,Noto Color Emoji;
+  line-height: 1.4;
+  background: var(--background);
+}
+
+.container {
+  display: grid;
+  grid-template-areas:
+    "search sidebar"
+    "packs sidebar";
+  grid-template-columns: 2fr 1fr;
+  grid-gap: 2em;
+  padding: 2em 2em 0;
+}
+
+.sidebar {
+  grid-area: sidebar;
+  border-left: 1px dashed #444;
+  padding-left: 2em;
+}
+
+.search-form {
+  grid-area: search;
+  display: flex;
+  flex-direction: row;
+  border: 1px solid var(--accent);
+  border-radius: 0.5em;
+  margin-bottom: 1.5em;
+  transition: background-color 0.5s;
+}
+
+.search-icon {
+  width: 1.5rem;
+  height: 1.5rem;
+  color: var(--accent);
+  margin: auto 0 auto 1em;
+}
+
+.search-input {
+  background: transparent;
+  padding: .5em 1em;
+  width: 100%;
+  font-size: 16px;
+  color: black;
+  border: none;
+  border-radius: inherit;
+  text-decoration: none;
+}
+
+.search-input:focus {
+  outline: none;
+}
+
+/* hack to prevent background change https://stackoverflow.com/a/51017404 */
+input:-webkit-autofill {
+  transition-delay: 86400s;
+}
+
+.search-form:focus-within{
+  background-color: #eaeaea;
+}
+
+.packs {
+  grid-area: packs;
+
+  display: grid;
+  grid-auto-flow: row dense;
+}
+
+.pack-card {
+  border: 1px solid var(--accent);
+  border-radius: 0.5em;
+  padding: 1em;
+}
